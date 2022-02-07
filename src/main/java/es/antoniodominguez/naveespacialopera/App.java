@@ -94,12 +94,7 @@ public class App extends Application {
     // ESCALA Y GRUPO SPACESHIP ENEMIGA
     double escalaYGroupSpaceshipEnemiga = 0.5;
     
-    int contadorPuntos = 0;
-    
-    int maxPuntuacion = 0;
-    // VELOCIDAD DE LA NAVE
-    //int spaceshipEnemigaSpeed = 0;    
-    
+
 ////// ASTEROIDES \\\\\\
     
     ////// ASTEROIDE 1 \\\\\\
@@ -149,7 +144,14 @@ public class App extends Application {
         Text textScore;
         Text textHighScore;
         Text textGameOver;
-
+        
+        
+////// PUNTUACION \\\\\\
+        int incrementoPuntos = 5;
+        int contadorPuntos = 0;
+        int maxPuntuacion = 0;
+        
+        
     @Override
     public void start(Stage stage) {
         
@@ -163,7 +165,7 @@ public class App extends Application {
         
 ////////// FONDO \\\\\\\\\\       
         // IMAGEN DE FONDO
-        Image fondo = new Image(getClass().getResourceAsStream("/images/fondo-fluido.png"));
+        Image fondo = new Image(getClass().getResourceAsStream("/images/fondo-fluido.PNG"));
         
         // POSICIÓN DE IMAGEN FONDO 1
         ImageView imagenFondo1 = new ImageView(fondo);
@@ -442,7 +444,7 @@ public class App extends Application {
                 
             })
         );
-////////// MÚSICA \\\\\\\\\\      
+////////// MUSICA \\\\\\\\\\      
         URL urlAudio = getClass().getResource("/audio/retro.mp3");            
         if(urlAudio != null) {
             try {
@@ -499,7 +501,7 @@ public class App extends Application {
                         colisionSpaceshipEnemiga = true;
                         groupSpaceshipEnemiga.setLayoutX(aparicionSpaceshipEnemigaX());
                         //contadorPuntos++;
-                        contadorPuntos +=10;
+                        contadorPuntos += incrementoPuntos;
                         textScore.setText(String.valueOf(contadorPuntos));
                         System.out.println("CONTADOR DE PUNTOS " + contadorPuntos);
                     }
